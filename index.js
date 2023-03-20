@@ -5,7 +5,7 @@ const fs = require('fs');
 const { Configuration, OpenAIApi } = require("openai");
 
 const { 
-  
+
   prefix, 
   number,
   apiKeyOpenAI,
@@ -47,9 +47,9 @@ function startBot(client) {
           image,
           { 
 
-            author: 'enzo#2907',
+            author: '',
             keepScale:true,
-            pack:'enzo#2907'
+            pack:''
 
           },
 
@@ -74,9 +74,9 @@ function startBot(client) {
           image,
           { 
 
-            author: 'enzo#2907',
+            author: '',
             keepScale:true,
-            pack:'enzo#2907'
+            pack:''
             
           },
 
