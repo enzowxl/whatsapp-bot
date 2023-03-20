@@ -5,11 +5,12 @@ const fs = require('fs');
 const { Configuration, OpenAIApi } = require("openai");
 
 const { 
-
+  
   prefix, 
   number,
   apiKeyOpenAI,
-  organizationOpenAI
+  organizationOpenAI,
+  initial
 
 } = require('./src/config/config')
 
@@ -33,7 +34,7 @@ ev.on('qr.**', async qrcode => {
 function startBot(client) {
 
     console.clear()
-    console.log('[BOT]: Seu bot foi iniciado com sucesso'+ '\n')
+    console.log('[BOT]: Seu bot foi iniciado com sucesso' + '\n')
 
     client.onMessage(async message => {
 
@@ -47,9 +48,9 @@ function startBot(client) {
           image,
           { 
 
-            author: '',
+            author: 'enzo#2907',
             keepScale:true,
-            pack:''
+            pack:'enzo#2907'
 
           },
 
@@ -74,9 +75,9 @@ function startBot(client) {
           image,
           { 
 
-            author: '',
+            author: 'enzo#2907',
             keepScale:true,
-            pack:''
+            pack:'enzo#2907'
             
           },
 
