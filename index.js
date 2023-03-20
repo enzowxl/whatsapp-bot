@@ -33,7 +33,7 @@ ev.on('qr.**', async qrcode => {
 function startBot(client) {
 
     console.clear()
-    console.log('[BOT]: Seu bot foi iniciado com sucesso' + '\n')
+    console.log('[BOT]: Seu bot foi iniciado com sucesso'+ '\n')
 
     client.onMessage(async message => {
 
