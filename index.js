@@ -12,7 +12,7 @@ const {
   organizationOpenAI,
   initial
 
-} = require('./src/config/config')
+} = require('./src/config/config.json')
 
 const configuration = new Configuration({
     organization: organizationOpenAI,

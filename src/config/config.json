@@ -1,0 +1,11 @@
+{
+    "prefix": "!",
+
+    "number": "numero@c.us",
+
+    "apiKeyOpenAI": "", 
+
+    "organizationOpenAI": "",
+
+    "initial": "/"
+}
