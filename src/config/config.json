@@ -1,11 +1,13 @@
 {
+
     "prefix": "!",
+    
+    "number": "5511930688152@c.us",
+    
+    "apiKeyOpenAI": "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",
+    
+    "organizationOpenAI": "org-eOACS68xmx94rM2MYD7ehhhP",
+    
+    "initial": "/" 
 
-    "number": "numero@c.us",
-
-    "apiKeyOpenAI": "", 
-
-    "organizationOpenAI": "",
-
-    "initial": "/"
 }
