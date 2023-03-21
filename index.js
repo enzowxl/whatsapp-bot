@@ -21,7 +21,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 
-
 ev.on('qr.**', async qrcode => {
   
   const imageBuffer = Buffer.from(
