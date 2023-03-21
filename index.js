@@ -117,6 +117,7 @@ function startBot(client) {
           client.sendText(message.from, output + "\n" + `\nCaracteres: ${output.length}/6547`)
           console.log('[PERGUNTA]: '+ input + '\n')
           console.log('[RESPOSTA]: '+ output + '\n')
+          console.log('[USER]: '+message.from)
 
           client
           .react(message.id, '✔')
