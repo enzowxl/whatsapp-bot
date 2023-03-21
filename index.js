@@ -92,7 +92,7 @@ function startBot(client) {
       }
 
 
-      if(message.body.startsWith(initial)){
+      if (message.body.startsWith(initial)){
 
         if (message.type === 'image'){
 
@@ -126,13 +126,19 @@ function startBot(client) {
         }catch (error){
 
           console.error(error)
+          client.sendText(
+
+            message.from,
+            'Ocorreu algum erro, tente novamente mais tarde!'
+
+          )
 
         }
 
       }
 
 
-      if(message.body.toLowerCase().startsWith(`${prefix}criargrupo`)){
+      if (message.body.toLowerCase().startsWith(`${prefix}criargrupo`)){
 
         await client.createGroup(message.from, message.from)
         .then((grupoc) => {
@@ -144,7 +150,7 @@ function startBot(client) {
           client
           .react(message.id, '✔')
   
-          console.log('[GRUPO]: '+'grupo criado'+'\n'+'[ID]: '+grupoc.wid._serialized)
+          console.log('[GRUPO]: '+'grupo criado'+'\n'+'[ID]: '+ grupoc.wid._serialized)
 
         }).catch((e) => {
 
@@ -197,15 +203,10 @@ function startBot(client) {
 
           for (const chat of chats) {
             await client.deleteChat(chat.id)
-            .then(async () => {
-
-              await client.reply(message.from, 'Deletei todos os chats.', message.id);
-  
-              client
-              .react(message.id, '✔')
-
-            })
           }
+          client
+          .react(message.id, '✔')
+          console.log('Deletados')
         }
 
 
@@ -228,15 +229,93 @@ function startBot(client) {
         const maped = data
         .map(a => a.title)
 
+            console.log(maped)
+
             client.reply(
               message.from, 
               `Lista de animes que serão lançados hoje: ` + today + '\n\n' + maped.join('\n'),
               message.id
               
               )
+              client
+              .react(message.id, '✔')
     
 
         
+      }
+
+
+      if (message.body.toLowerCase().startsWith(`${prefix}addgrupo`)) {
+
+        const input = message.body+'@c.us'
+
+        console.log(input)
+
+        const add = client.addParticipant(message.from, input)
+
+
+      }
+
+
+      if (message.body.toLowerCase().startsWith(`${prefix}removegrupo`)) {
+
+        const input = message.body+'@c.us'
+
+        const rmv = client.removeParticipant(message.from, input)
+
+
+      }
+
+
+      if (message.body.toLowerCase().startsWith(`${prefix}promotegrupo`)) {
+
+        const input = message.body+'@c.us'
+
+        const prmt = client.promoteParticipant(message.from, input)
+
+
+      } 
+
+
+      if (message.body.toLowerCase().startsWith(`${prefix}demotedgrupo`)) {
+
+        const input = message.body+'@c.us'
+
+        const dmtd = client.demoteParticipant(message.from, input)
+
+
+      }    
+
+
+      if (message.body.toLowerCase().startsWith(`${prefix}help`)) {
+
+        client.reply(
+
+          message.from,
+`Olá, essa é a lista de comandos que eu possuo:\n
+*Chat GPT:*
+${initial}sua pergunta - ex: ${initial}quanto é 2+2
+
+*Funções (Grupo):*
+${prefix}criargrupo - o bot cria um grupo
+${prefix}addgrupo "numero" - o bot adiciona um participante (manutenção)
+${prefix}removegrupo "numero" - o bot remove um participante (manutenção)
+${prefix}promotegrupo "numero" - o bot promove um participante (manutenção)
+${prefix}demotedgrupo "numero" - o bot demota um participante (manutenção)
+          
+*Avançado:*
+${prefix}quitgroups - o bot sai de todos os grupos
+${prefix}deletechats - o bot deleta todos os chats
+
+*Curiosidades:*
+${prefix}animesdodia - o bot manda a lista de animes do dia`,
+          message.id
+
+        )
+
+        client
+        .react(message.id, '❔')
+
       }
 
 
