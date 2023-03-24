@@ -8,6 +8,10 @@
     
     "organizationOpenAI": "",
     
-    "initial": "/" 
+    "initial": "/",
+
+    "evalPrefix": "#",
+
+    "discordKeyBot": ""
 
 }
